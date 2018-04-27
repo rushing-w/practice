@@ -27,7 +27,7 @@ public class WorkerControl {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
-	 @RequestMapping(value = "/views")
+	 @RequestMapping(value = "/")
 	 	public String index(Model model){
 	        return "loginWorker";
 	    }
@@ -36,7 +36,7 @@ public class WorkerControl {
 	 public String login(HttpServletRequest request, @RequestParam("workerinfo") WorkerInfo workerinfo){
 		 if(workerService.loginWorker(workerinfo)){
 		 	request.getSession().setAttribute("jobNum", workerinfo.getJobNum());
-		 	return "homeWorker";
+		 	return "redirect:homeWorker";
 		 }else{
 		 	return "loginFailed";
 		 }
@@ -74,6 +74,7 @@ public class WorkerControl {
 	 	String idNum = request.getParameter("idNum");
 	 	if(userServiceImpl.GetUserInfo().getIdNum().equals(idNum)){
 	 		workerServiceImpl.DeleteUser(idNum);
+	 		userServiceImpl.ModUserCounts(userServiceImpl.GetUserCounts()-1);
 	 		return "deleteUserSuccess";
 		}else {
 	 		return "deleteUserFailed";

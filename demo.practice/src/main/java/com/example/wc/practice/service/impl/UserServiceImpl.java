@@ -15,6 +15,8 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	UserDao userDao;
+	@Autowired
+	UserInfo userInfo;
 	
 	@Override
 	public boolean loginUser(UserInfo userinfo) {
@@ -56,9 +58,12 @@ public class UserServiceImpl implements UserService{
         }
 	}
 
-	public boolean ApplyLoan(String amount) {
-
-		return false;
+	public void ApplyLoan(String name, String idNum, String amount) {
+		String loanflag = "1";
+		if(userInfo.getCredit() < 550){
+			loanflag = "0";
+		}
+		userDao.InsertApplyInfo(name, idNum, amount, loanflag);
 	}
 
 	public String SaveMoney(String idNum, String amount) {

@@ -8,7 +8,7 @@ public interface UserService {
 	
 	boolean register(UserInfo user); //注册
 	
-	boolean ApplyLoan(String amount); //申请贷款
+	void ApplyLoan(String name, String idNum, String amount); //申请贷款
 	
 	String SaveMoney(String idNum, String amount); //存钱
 	

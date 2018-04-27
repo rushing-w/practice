@@ -59,7 +59,6 @@
 		tel_num,
 		password
 		)values(
-		#{id},
 		#{name},
 		#{sex},
 		#{age},
@@ -95,8 +94,25 @@
 		UPDATE
 		oracle.bankinfo
 		SET
-		usercounts = ${usercounts}
+		usercounts = #{usercounts}
 	</update>
+
+	<insert id="InsertApplyInfo" parameterType="String">
+		INSERT
+		INTO
+		oracle.applyinfo
+		(
+		name,
+		id_num,
+		amount,
+		loanflag
+		)VALUES (
+		#{name},
+		#{id_num},
+		#{amount},
+		#{loanflag}
+		)
+	</insert>
 	
 </mapper> 
 

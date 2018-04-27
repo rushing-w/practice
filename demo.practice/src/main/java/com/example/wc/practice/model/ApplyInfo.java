@@ -5,6 +5,7 @@ public class ApplyInfo {
 	private String name; //用户姓名
 	private String id_num; //用户身份证号
 	private String amount; //用户申请贷款金额
+	private String loanflag; //用户贷款权限——0代表不可以，1代表可以
 	
 	public int getId() {
 		return id;
@@ -30,13 +31,20 @@ public class ApplyInfo {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	public String getLoanFlag(){
+		return loanflag;
+	}
+	public void setLoanflag(String loanflag){
+		this.loanflag = loanflag;
+	}
 	
 	@Override
 	public String toString() {
 		return "ApplyInfo [id=" + id + 
 				", name=" + name + 
 				", id_num=" + id_num + 
-				", amount=" + amount + 
+				", amount=" + amount +
+				", loanflag=" + loanflag +
 				"]";
 	}
 	

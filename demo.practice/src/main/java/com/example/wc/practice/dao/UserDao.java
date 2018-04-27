@@ -19,4 +19,6 @@ public interface UserDao {
 	int GetUserCounts();
 
 	void ModUserCounts(int usercounts);
+
+	void InsertApplyInfo(String name, String idNum, String amount, String loanflag);
 }

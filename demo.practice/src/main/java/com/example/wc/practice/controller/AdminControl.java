@@ -27,7 +27,7 @@ public class AdminControl {
 	 public String login(HttpServletRequest request, @RequestParam("admininfo") AdminInfo admininfo){
 		 if(adminService.loginAdmin(admininfo)){
 		 	 request.getSession().setAttribute("account", admininfo.getAccount());
-			 return "homeAdmin";
+			 return "redirect:homeAdmin";
 		 }else{
 			 return "loginFailed";
 		 }

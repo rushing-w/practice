@@ -39,13 +39,19 @@
 		WHERE
 		id_num = #{idNum}
 	</select>
+
+	<select id="GetUserCounts" resultType="int">
+		SELECT
+		usercounts
+		FROM
+		oracle.bankinfo
+	</select>
 	
 	<insert id="InsertUserInfo" parameterType="com.example.wc.practice.model.UserInfo">
 		INSERT
 		INTO
 		oracle.userinfo
 		(
-		id,
 		name,
 		sex,
 		age,
@@ -53,7 +59,6 @@
 		tel_num,
 		password
 		)values(
-		#{id},
 		#{name},
 		#{sex},
 		#{age},
@@ -84,6 +89,30 @@
 		WHERE
 		id_num = #{idNum}
 	</update>
+
+	<update id="ModUserCounts" parameterType="int">
+		UPDATE
+		oracle.bankinfo
+		SET
+		usercounts = #{usercounts}
+	</update>
+
+	<insert id="InsertApplyInfo" parameterType="String">
+		INSERT
+		INTO
+		oracle.applyinfo
+		(
+		name,
+		id_num,
+		amount,
+		loanflag
+		)VALUES (
+		#{name},
+		#{id_num},
+		#{amount},
+		#{loanflag}
+		)
+	</insert>
 	
 </mapper> 
 

@@ -25,7 +25,7 @@ public class UserControl {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
-	 @RequestMapping(value = "/views")
+	 @RequestMapping(value = "/")
 	    public String index(Model model){
 	        return "loginUser";
 	    }
@@ -35,7 +35,7 @@ public class UserControl {
 	 	if(userService.loginUser(userinfo)){
 	 		request.getSession().setAttribute("idNum", userinfo.getIdNum());
 			request.getSession().setAttribute("password", userinfo.getPassword());
-			return "homeUser";
+			return "redirect:homeUser";
 	 	}else{
 	 		return "loginFailed";
 	 	}
