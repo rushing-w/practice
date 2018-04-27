@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.wc.practice.dao.UserDao">
+	<sql id="selectFields">
+		id as id,
+		name as name,
+		sex as sex,
+		age as age,
+		id_num as idNum,
+		tel_num as telNum,
+		credit as credit,
+		balance as balance,
+		password as password
+	</sql>
+	
+	<select id="SelectUserInfo" parameterType="String" resultType="com.example.wc.practice.model.UserInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.userinfo
+		WHERE
+		id_num = #{idNum}
+	</select>
+	
+	<select id="SelectByIdNumAndPassword" parameterType="com.example.wc.practice.model.UserInfo" resultType="com.example.wc.practice.model.UserInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.userinfo
+		WHERE
+		id_num = #{idNum} and password = #{password}
+	</select>
+	
+	<select id="SelectBalanceFromUserInfo" parameterType="String" resultType="String">
+		SELECT
+		balance
+		FROM
+		oracle.userinfo
+		WHERE
+		id_num = #{idNum}
+	</select>
+
+	<select id="GetUserCounts" resultType="int">
+		SELECT
+		usercounts
+		FROM
+		oracle.bankinfo
+	</select>
+	
+	<insert id="InsertUserInfo" parameterType="com.example.wc.practice.model.UserInfo">
+		INSERT
+		INTO
+		oracle.userinfo
+		(
+		name,
+		sex,
+		age,
+		id_num,
+		tel_num,
+		password
+		)values(
+		#{id},
+		#{name},
+		#{sex},
+		#{age},
+		#{idNum},
+		#{telNum},
+		#{password}
+		)
+	</insert>
+	
+	<update id="UpdateUserinfo" parameterType="com.example.wc.practice.model.UserInfo">
+		UPDATE
+		oracle.userinfo
+		SET
+		name = #{name},
+		sex = #{sex},
+		age = #{age},
+		tel_num = #{telNum},
+		password = #{password}
+		WHERE
+		id_num = #{idNum}
+	</update>
+	
+	<update id="UpdateUserBalance" parameterType="String">
+		UPDATE
+		oracle.userinfo
+		SET
+		balance = #{balance}
+		WHERE
+		id_num = #{idNum}
+	</update>
+
+	<update id="ModUserCounts" parameterType="int">
+		UPDATE
+		oracle.bankinfo
+		SET
+		usercounts = ${usercounts}
+	</update>
+	
+</mapper> 
+

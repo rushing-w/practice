@@ -2,13 +2,19 @@ package com.example.wc.practice.dao;
 
 import java.util.List;
 
-import com.example.wc.practice.modle.*;
+import com.example.wc.practice.model.*;
 
 public interface WorkerDao {
-	boolean login_worker(String job_num, String password);
-	
-	List<UserInfo> GetUsetInfoById_num(String id_num); //¸ù¾İÉí·İÖ¤²éÑ¯ÓÃ»§
-	
-	boolean DealApply(List<UserInfo> userinfo, String amount);//´¦Àí´û¿îÉêÇë
 
+	UserInfo GetUserInfoByIdNum(String idNum); //æ ¹æ®èº«ä»½è¯æŸ¥è¯¢ç”¨æˆ·
+	
+	UserInfo GetUserInfoByTelNum(String telNum); //æ ¹æ®ç”µè¯å·æŸ¥è¯¢
+	
+	List<UserInfo> GetAllUserInfo(); //æŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯
+	
+	void UpdateUserCredit(String idNum, String credit); //æ›´æ–°ç”¨æˆ·ä¿¡ç”¨
+	
+	void DeleteUserInfoByIdNum(String idNum); //æ ¹æ®èº«ä»½è¯åˆ é™¤ç”¨æˆ·
+
+	WorkerInfo SelectByJobNumAndPassword(WorkerInfo workerinfo); //ç™»é™†
 }

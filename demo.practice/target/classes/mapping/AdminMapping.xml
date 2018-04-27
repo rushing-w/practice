@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace = "com.example.wc.practice.dao.AdminDao">
+	<insert id="InsertWorkerInfo" parameterType="com.example.wc.practice.model.WorkerInfo">
+		INSERT
+		INTO
+		oracle.workerinfo
+		(
+		id,
+		name,
+		sex,
+		age,
+		workingyears,
+		job_num,
+		tel_num,
+		password
+		)values(
+		#{id},
+		#{name},
+		#{sex},
+		#{age},
+		#{workingyears},
+		#{jobNum},
+		#{telNum},
+		#{password}
+		)
+	</insert>
+	
+	<sql id="selectFields">
+		id as id,
+		name as name,
+		sex as sex,
+		age as age,
+		workingyears as workingyears,
+		job_num as jobNum,
+		tel_num as telNum,
+		password as password
+	</sql>
+	
+	<select id="GetWorkerInfoByJobNum" parameterType="String" resultType="com.example.wc.practice.model.WorkerInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.workerinfo
+		WHERE
+		job_num = #{jobNum}
+	</select>
+	
+	<select id="GetAllWorkerInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.workerinfo
+	</select>
+
+	<select id="SelectByAccountAndPassword" parameterType="com.example.wc.practice.model.AdminInfo" resultType="com.example.wc.practice.model.AdminInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.admininfo
+		WHERE
+		account = #{account} and password = #{password}
+	</select>
+	
+	<delete id="DeleteWorkerInfoByJobNum" parameterType="String">
+		DELETE
+		FROM
+		oracle.workerinfo
+		WHERE
+		job_num = #{jobNum}
+	</delete>
+	
+	<update id="UpdateWorkerInfo" parameterType="String">
+		UPDATE
+		oracle.workerinfo
+		id = #{id},
+		name = #{name},
+		sex = #{sex},
+		age = #{age},
+		workingyears = #{workingyears},
+		job_num = #{jobNum},
+		tel_num = #{telNum},
+		password = #{password}
+		WHERE
+		job_num = #{job_num}
+	</update>
+	
+	<select id="ViewMoney" resultType="String">
+		SELECT
+		money as money
+		FROM
+		oracle.bankinfo
+	</select>
+</mapper>

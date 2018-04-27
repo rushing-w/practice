@@ -1,25 +1,22 @@
 package com.example.wc.practice.dao;
 
 import java.util.List;
-import com.example.wc.practice.modle.*;
+
+import com.example.wc.practice.model.*;
 
 public interface AdminDao {
-	boolean login_admin(String account, String password);
-	
-	void InsertWorkerInfo(WorkerInfo workerinfo); //Ìí¼Ó¹¤×÷ÈËÔ±ĞÅÏ¢
-	
-	void InsertWorkerInfos(List<WorkerInfo> workerinfo); //Ìí¼Ó¹¤×÷ÈËÔ±È«²¿ĞÅÏ¢
-	
-	List<WorkerInfo> GetWorkerInfoByJob_num(String job_num); //¸ù¾İ¹¤ºÅ²éÑ¯
-	
-	List<WorkerInfo> GetWorkerInfoByName(String name); //¸ù¾İĞÕÃû²éÑ¯
-	
-	void DeleteWorkerInfoByJob_num(String job_num); //¸ù¾İ¹¤ºÅÉ¾³ı
-	
-	void UpdateWorkerInfo(List<WorkerInfo> workerinfo); //ĞŞ¸Ä¹¤×÷ÈËÔ±ĞÅÏ¢
-	
-	boolean DealApply(String amount); //Åú¸´ÉêÇë
-	
-	String ViewMoney(); //²é¿´×Ê½ğ
-	
+
+	void InsertWorkerInfo(WorkerInfo workerinfo); //æ·»åŠ å·¥ä½œäººå‘˜ä¿¡æ¯
+
+	WorkerInfo GetWorkerInfoByJobNum(String jobNum); //æ ¹æ®å·¥å·æŸ¥è¯¢
+
+	List<WorkerInfo> GetAllWorkerInfo(); //æŸ¥è¯¢æ‰€æœ‰å‘˜å·¥ä¿¡æ¯
+
+	void DeleteWorkerInfoByJobNum(String jobNum); //æ ¹æ®å·¥å·åˆ é™¤
+
+	void UpdateWorkerInfo(String jobNum); //ä¿®æ”¹å·¥ä½œäººå‘˜ä¿¡æ¯
+
+	AdminInfo SelectByAccountAndPassword(AdminInfo admininfo); //ç™»é™†
+
+	String ViewMoney(); //æŸ¥çœ‹èµ„é‡‘
 }

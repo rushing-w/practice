@@ -1,0 +1,16 @@
+package com.example.wc.practice.service;
+
+import com.example.wc.practice.model.UserInfo;
+
+public interface UserService {
+	
+	boolean loginUser(UserInfo userinfo); //登陆
+	
+	boolean register(UserInfo user); //注册
+	
+	boolean ApplyLoan(String amount); //申请贷款
+	
+	String SaveMoney(String idNum, String amount); //存钱
+	
+	boolean WithdrawMoney(String idNum, String amount); //取钱
+}
