@@ -11,7 +11,7 @@
    <div class="text" style=" text-align:center;"><h2>用户登陆界面</h2></div>
 	<div class="text" style=" text-align:center;">
 	 <form class="form-inline" role="form"
-	 action="${pageContext.request.contextPath}/loginUser.action" method="post">
+	 action="/loginUser" method="post">
 	  <div class="form-group">
 		<label for="IdNum">身份证号</label>
 		<input type="idNum" class="form-control" id="idNum" placeholder="IdNum">

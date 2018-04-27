@@ -17,4 +17,6 @@ public interface WorkerDao {
 	void DeleteUserInfoByIdNum(String idNum); //根据身份证删除用户
 
 	WorkerInfo SelectByJobNumAndPassword(WorkerInfo workerinfo); //登陆
+
+	void ModLoanFlag(String idNum, String flag); //判断申请者能否贷款
 }

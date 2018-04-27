@@ -2,6 +2,7 @@ package com.example.wc.practice.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class UserControl {
 	@Autowired
 	UserServiceImpl userServiceImpl;
 	
-	 @RequestMapping(value = "/views")
+	 @RequestMapping(value = "/")
 	    public String index(Model model){
 	        return "loginUser";
 	    }
@@ -35,7 +36,7 @@ public class UserControl {
 	 	if(userService.loginUser(userinfo)){
 	 		request.getSession().setAttribute("idNum", userinfo.getIdNum());
 			request.getSession().setAttribute("password", userinfo.getPassword());
-			return "homeUser";
+			return "redirect:homeUser";
 	 	}else{
 	 		return "loginFailed";
 	 	}
@@ -60,9 +61,9 @@ public class UserControl {
 	 }
 
 	 @RequestMapping(value = "/queryUser", method = RequestMethod.POST)
-	 public String queryUser(HttpServletRequest request){
-	 	UserInfo userinfo = userServiceImpl.GetUserInfo();
-	 	request.getSession().setAttribute("UserInfo", userinfo);
+	 public String queryUser(HttpSession session,String idNum){
+	 	UserInfo userinfo = userServiceImpl.GetUserInfo(idNum);
+	 	session.setAttribute("UserInfo", userinfo);
 	 	if(userinfo == null){
 	 		return "queryFailed";
 		}else{
@@ -86,10 +87,8 @@ public class UserControl {
 	 }
 
 	 @RequestMapping(value = "/saveMoney", method = RequestMethod.POST)
-	 public String saveMoney(HttpServletRequest request){
-	 	String oldBalance = userServiceImpl.GetUserInfo().getBalance();
-	 	String idNum = request.getParameter("idNum");
-	 	String amount = request.getParameter("amount");
+	 public String saveMoney(String idNum,String amount){
+	 	String oldBalance = userServiceImpl.GetUserInfo(idNum).getBalance();
 	 	String newBalance = userService.SaveMoney(idNum, amount);
 	 	if(oldBalance.equals(newBalance)){
 	 		return "saveSuccess";
@@ -99,9 +98,7 @@ public class UserControl {
 	 }
 
 	 @RequestMapping(value = "/withdrawMoney", method = RequestMethod.POST)
-	 public String withdrawMoney(HttpServletRequest request){
-	 	String idNum = request.getParameter("idNum");
-	 	String amount = request.getParameter("amount");
+	 public String withdrawMoney(String idNum,String amount){
 	 	if(userService.WithdrawMoney(idNum, amount)){
 	 		return "withdrawSuccess";
 		}else{

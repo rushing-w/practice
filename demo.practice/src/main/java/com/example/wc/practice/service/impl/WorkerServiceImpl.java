@@ -15,7 +15,6 @@ public class WorkerServiceImpl implements WorkerService{
 	@Autowired
 	WorkerDao workerDao;
 	
-	@Override
 	public boolean loginWorker(WorkerInfo workerinfo) {
 		WorkerInfo info = workerDao.SelectByJobNumAndPassword(workerinfo);
 		if(info == null){
@@ -45,9 +44,8 @@ public class WorkerServiceImpl implements WorkerService{
 		workerDao.DeleteUserInfoByIdNum(idNum);
 	}
 
-	public boolean HandleApply(List<UserInfo> userinfo, String amount) {
-		
-		return false;
+	public void HandleApply(List<UserInfo> userinfo) {
+
 	}
 
 }

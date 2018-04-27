@@ -7,5 +7,15 @@ public interface WorkerService {
 	
 	boolean loginWorker(WorkerInfo workerinfo);
 	
-	boolean HandleApply(List<UserInfo> userinfo, String amount);//处理贷款申请
+	void HandleApply(List<UserInfo> userinfo);//处理贷款申请
+
+	List<UserInfo> GetAllUserInfo();
+
+	void ModUserCredit(String idNum,String credit);
+
+	void DeleteUser(String idNum);
+
+	UserInfo GetUserInfoById(String idNum);
+
+	UserInfo GetUserInfoByTel(String telNum);
 }
