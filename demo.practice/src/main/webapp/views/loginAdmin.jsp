@@ -11,7 +11,7 @@
 	<div class="text" style=" text-align:center;"><h2>管理员登陆界面</h2></div>
 		<div class="text" style=" text-align:center;">
 		 <form class="form-inline" role="form"
-		 action="${pageContext.request.contextPath}/loginAdmin.action" method="post">
+		 action="/loginAdmin" method="post">
 		  <div class="form-group">
 			<label for="Account">账户</label>
 			<input type="account" class="form-control" id="Account" placeholder="Account">

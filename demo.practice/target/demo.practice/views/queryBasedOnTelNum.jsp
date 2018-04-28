@@ -11,7 +11,7 @@
 	<div class="text" style=" text-align:center;">
     <p>请输入需要查询的用户的电话号:</p>
 	    <form class="form-search">
-		 <input type="text" class="input-medium search-query">
+		 <input type="text" value="telNum" class="input-medium search-query">
 	 	 <button type="submit" class="btn">查询</button>
 	    </form>
    	</div>

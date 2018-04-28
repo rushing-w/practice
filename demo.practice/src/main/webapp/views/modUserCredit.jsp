@@ -11,7 +11,7 @@
 	<div class="text" style=" text-align:center;"><h2>工作人员修改用户信誉值界面</h2></div>
 
   <div class="text" style=" text-align:center;">
-	<form class="form-horizontal">
+	<form class="form-horizontal" action="/modUserCredit" method="post">
 	  <p>请输入需要修改的用户身份证号:</p>
 	  <div class="control-group">
 		<div class="controls">

@@ -18,7 +18,7 @@ public class AdminControl {
 	@Autowired
 	AdminService adminService;
 	
-	 @RequestMapping(value = "/views")
+	 @RequestMapping(value = "/admin")
 	    public String index(Model model){
 	        return "loginAdmin";
 	    }

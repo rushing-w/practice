@@ -2,21 +2,22 @@ package com.example.wc.practice.service.impl;
 
 import java.util.List;
 
+import com.example.wc.practice.dao.AdminDao;
+import com.example.wc.practice.model.AdminInfo;
+import com.example.wc.practice.model.WorkerInfo;
+import com.example.wc.practice.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.wc.practice.dao.*;
-import com.example.wc.practice.model.*;
-import com.example.wc.practice.service.*;
+
 
 
 @Service("adminService")
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	AdminDao adminDao;
 	
-	@Override  
 	public boolean loginAdmin(AdminInfo admininfo) {
 		AdminInfo info = adminDao.SelectByAccountAndPassword(admininfo);
 		if(info == null){
@@ -27,7 +28,7 @@ public class AdminServiceImpl implements AdminService{
 		
 	}
 	
-	public void AddtWorkerInfo(WorkerInfo workerinfo){
+	public void AddWorkerInfo(WorkerInfo workerinfo){
 
 		adminDao.InsertWorkerInfo(workerinfo);
 	}

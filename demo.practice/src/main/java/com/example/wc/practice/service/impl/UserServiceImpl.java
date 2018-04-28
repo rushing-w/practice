@@ -15,10 +15,8 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	UserDao userDao;
-	@Autowired
-	UserInfo userInfo;
-	
-	@Override
+
+
 	public boolean loginUser(UserInfo userinfo) {
 		UserInfo info = userDao.SelectByIdNumAndPassword(userinfo);
 		if(info == null){
@@ -28,7 +26,6 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 	
-	@Override
 	public boolean register(UserInfo userinfo) {
 		UserInfo info = userDao.InsertUserInfo(userinfo);
 		if(info == null){
@@ -38,8 +35,8 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 	
-	public UserInfo GetUserInfo(){
-		return userDao.SelectUserInfo();
+	public UserInfo GetUserInfo(String idNum){
+		return userDao.SelectUserInfo(idNum);
 	}
 
 	public int GetUserCounts(){
@@ -60,6 +57,7 @@ public class UserServiceImpl implements UserService{
 
 	public void ApplyLoan(String name, String idNum, String amount) {
 		String loanflag = "1";
+		UserInfo userInfo = userDao.SelectUserInfo(idNum);
 		if(userInfo.getCredit() < 550){
 			loanflag = "0";
 		}

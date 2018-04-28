@@ -10,7 +10,7 @@
 <body>
 	<div class="text" style=" text-align:center;"><h2>用户存款</h2></div>
 	<div class="text" style=" text-align:center;">
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="/saveMoney" method="post">
 			<input type="text" name="idNum" placeholder="请输入您的身份证号">
 		 	<input type="text" name="amount" placeholder="请输入将要存入的金额">
 		 	<input type="submit" value="确认">

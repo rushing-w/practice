@@ -47,7 +47,8 @@
 	<update id="UpdateUserCredit" parameterType="String">
 		UPDATE
 		oracle.userinfo
-		credit = #{credit},
+		SET
+		credit = #{credit}
 		WHERE
 		id_num = #{idNum}
 	</update>
@@ -59,5 +60,14 @@
 		WHERE
 		id_num = #{idNum}
 	</delete>
+
+	<update id="ModApplyInfo" parameterType="String">
+		UPDATE
+		oracle.applyinfo
+		SET
+		loanflag = #{loanflag}
+		WHERE
+		id_num = #{idNum}
+	</update>
 
 </mapper>

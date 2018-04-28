@@ -11,9 +11,15 @@
 	<div class="text" style=" text-align:center;"><h2>登陆界面</h2></div>
 	<div class="text" style=" text-align:center;">
 		<table class="table">
-			<td><button type="button" onclick="window.location.href='loginUser.jsp'" class="btn btn-primary">用户登陆</button></td>
-			<td><button type="button" onclick="window.location.href='loginWorker.jsp'" class="btn btn-success">工作人员登陆</button></td>
-			<td><button type="button" onclick="window.location.href='loginAdmin.jsp'" class="btn btn-info">管理员登陆</button></td>
+			<td>
+				<a href="/user" type="button" class="btn btn-primary">用户</a>
+			</td>
+			<td>
+				<a href="/worker" type="button" >工作人员</a>
+			</td>
+			<td>
+				<a href="/admin" type="button" >管理员</a>
+			</td>
 		</table>
 	</div>
 </body>

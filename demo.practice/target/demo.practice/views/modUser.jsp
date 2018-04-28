@@ -11,30 +11,31 @@
 <div class="text" style=" text-align:center;"><h2>用户修改信息界面</h2></div>
   <div class="text" style=" text-align:center;">
 	<p>请按照提示输入需要修改的信息:</p>
-	<form class="form-horizontal">
+	<form class="form-horizontal"
+	action="/modUser" method="post">
 	  <div class="control-group">
 		<div class="controls">
-		  <p>姓名:<input type="text" placeholder="Name"></p>
+		  <p>姓名:<input type="text" name="name" placeholder="Name"></p>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>性别:<select style="width:160px"><option>男</option><option>女</option></select></p>
+		  <p>性别:<select name="selectSex"><option value="男">男</option><option value="女">女</option></select></p>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>年龄:<input type="text" placeholder="Age"></p>
+		  <p>年龄:<input type="text" name="age" placeholder="Age"></p>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>电话:<input type="text" placeholder="TelNum"></p>
+		  <p>电话:<input type="text" name="telNum" placeholder="TelNum"></p>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>密码:<input type="text" placeholder="Password"></p>
+		  <p>密码:<input type="text" name="password" placeholder="Password"></p>
 		</div>
 	  </div>
 	  <div class="control-group">

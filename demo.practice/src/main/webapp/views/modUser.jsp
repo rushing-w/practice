@@ -11,7 +11,8 @@
 <div class="text" style=" text-align:center;"><h2>用户修改信息界面</h2></div>
   <div class="text" style=" text-align:center;">
 	<p>请按照提示输入需要修改的信息:</p>
-	<form class="form-horizontal">
+	<form class="form-horizontal"
+	action="/modUser" method="post">
 	  <div class="control-group">
 		<div class="controls">
 		  <p>姓名:<input type="text" name="name" placeholder="Name"></p>

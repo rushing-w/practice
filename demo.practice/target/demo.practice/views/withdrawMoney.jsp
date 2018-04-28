@@ -10,10 +10,11 @@
 <body>
 	<div class="text" style=" text-align:center;"><h2>用户取款</h2></div>
 	<div class="text" style=" text-align:center;">
-		<form class="form-horizontal">  
-		 <input type="text" name="name" placeholder="请输入将要取出的金额">  
-		 <input type="submit" value="确认">  
-		 <input type="reset" value="取消">
+		<form class="form-horizontal" action="/withdrawMoney" method="post">
+			<input type="text" name="idNum" placeholder="请输入您的身份证号">
+		 	<input type="text" name="amount" placeholder="请输入将要取出的金额">
+		 	<input type="submit" value="确认">
+		 	<input type="reset" value="取消">
 		</form>  
 	</div>
 </body>

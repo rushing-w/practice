@@ -11,7 +11,7 @@
 	<div class="text" style=" text-align:center;"><h2>工作人员登陆界面</h2></div>
 	<div class="text" style=" text-align:center;">
 	 <form class="form-inline" role="form"
-	 action="${pageContext.request.contextPath}/loginWorker.action" method="post">
+	 action="/loginWorker" method="post">
 	  <div class="form-group">
 		<label for="JobNum">工号</label>
 		<input type="jobnum" class="form-control" id="JobNum" placeholder="JobNum">

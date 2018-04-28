@@ -4,7 +4,7 @@ import com.example.wc.practice.model.*;
 
 public interface UserDao {
 	
-	UserInfo SelectUserInfo(); //查询用户自身信息
+	UserInfo SelectUserInfo(String idNum); //查询用户自身信息
 	
 	Integer UpdateUserinfo(UserInfo userinfo); //修改用户自身信息
 

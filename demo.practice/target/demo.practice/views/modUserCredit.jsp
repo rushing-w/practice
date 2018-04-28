@@ -11,18 +11,18 @@
 	<div class="text" style=" text-align:center;"><h2>工作人员修改用户信誉值界面</h2></div>
 
   <div class="text" style=" text-align:center;">
-	<form class="form-horizontal">
+	<form class="form-horizontal" action="/modUserCredit" method="post">
 	  <p>请输入需要修改的用户身份证号:</p>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>身份证号:<input type="text" placeholder="IdNum"></p>
+		  <p>身份证号:<input type="text" name="idNum" placeholder="IdNum"></p>
 		</div>
 	  </div>
 
 	  <p>请输入将要修改的用户信誉值:</p>
 	  <div class="control-group">
 		<div class="controls">
-		  <p>信誉值:<input type="text" placeholder="Credit"></p>
+		  <p>信誉值:<input type="text" name="credit" placeholder="Credit"></p>
 		</div>
 	  </div>
 

@@ -15,7 +15,6 @@ public class WorkerServiceImpl implements WorkerService{
 	@Autowired
 	WorkerDao workerDao;
 	
-	@Override
 	public boolean loginWorker(WorkerInfo workerinfo) {
 		WorkerInfo info = workerDao.SelectByJobNumAndPassword(workerinfo);
 		if(info == null){

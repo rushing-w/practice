@@ -11,7 +11,7 @@
 	<div class="text" style=" text-align:center;"><h2>用户主界面</h2></div>
 	<div class="text" style=" text-align:center;">
 		<table class="table">
-			<td><button type="button" onclick="window.location.href=''" class="btn btn-primary">查看个人信息</button></td>
+			<td><button type="button" onclick="window.location.href='userInfo.jsp'" class="btn btn-primary">查看个人信息</button></td>
 			<td><button type="button" onclick="window.location.href='modUser.jsp'" class="btn btn-success">修改个人信息</button></td>
 		</table>
 	</div>

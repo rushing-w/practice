@@ -11,17 +11,18 @@
    <div class="text" style=" text-align:center;"><h2>用户登陆界面</h2></div>
 	<div class="text" style=" text-align:center;">
 	 <form class="form-inline" role="form"
-	 action="${pageContext.request.contextPath}/loginUser.action" method="post">
+	 action="/loginUser" method="post">
 	  <div class="form-group">
 		<label for="IdNum">身份证号</label>
 		<input type="idNum" class="form-control" id="idNum" placeholder="IdNum">
 	  </div>
 	  <div class="form-group">
-		<label for="Password">密码</label>
-		<input type="password" class="form-control" id="password" placeholder="Password">
+		 <label for="Password">密码</label>
+		 <input type="password" class="form-control" id="password" placeholder="Password">
 	  </div>
-	  <button type="submit" class="btn btn-default">登陆</button>
-	  <button type="submit" class="btn btn-default">注册</button>
+		 <input type="hidden" id="abc" name="abc" value="1">
+		 <input type="submit" name="loginUser" value="登陆" onclick="this.form.abc.value='1' ">
+		 <input type="button" name="register" value="注册" onclick="this.form.abc.value='2'">
 	 </form>
 	</div>
 
