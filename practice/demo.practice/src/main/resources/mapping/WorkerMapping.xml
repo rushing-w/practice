@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace = "com.example.wc.practice.dao.WorkerDao">
+	<sql id="selectFields">
+		id as id,
+		name as name,
+		sex as sex,
+		age as age,
+		id_num as idNum,
+		tel_num as telNum,
+		credit as credit,
+		balance as balance
+	</sql>
+	<select id="GetUsetInfoByIdNum" parameterType="String" resultType="com.example.wc.practice.model.UserInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.userinfo
+		WHERE
+		id_num = #{idNum}
+	</select>
+	
+	<select id="GetUserInfoByTelNum" parameterType="String" resultType="com.example.wc.practice.model.UserInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.userinfo
+		where tel_num = #{telNum}
+	</select>
+	
+	<select id="GetAllUserInfo" resultType="com.example.wc.practice.model.UserInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.userinfo
+	</select>
+	
+	<select id="SelectByJobNumAndPassword" parameterType="com.example.wc.practice.model.WorkerInfo" resultType="com.example.wc.practice.model.WorkerInfo">
+		SELECT
+		<include refid="selectFields"/>
+		FROM
+		oracle.workerinfo
+		WHERE
+		job_num = #{jobNum} and password = #{password}
+	</select>
+	
+	<update id="UpdateUserCredit" parameterType="String">
+		UPDATE
+		oracle.userinfo
+		SET
+		credit = #{credit}
+		WHERE
+		id_num = #{idNum}
+	</update>
+	
+	<delete id="DeleteUserInfoByIdNum" parameterType="String">
+		DELETE
+		FROM
+		oracle.userinfo
+		WHERE
+		id_num = #{idNum}
+	</delete>
+
+	<update id="ModApplyInfo" parameterType="String">
+		UPDATE
+		oracle.applyinfo
+		SET
+		loanflag = #{loanflag}
+		WHERE
+		id_num = #{idNum}
+	</update>
+
+</mapper>
